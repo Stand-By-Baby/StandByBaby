@@ -2,25 +2,44 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import TabLayout from "@enact/sandstone/TabLayout";
+import { Tab } from "@enact/sandstone/TabLayout";
 import { Header } from "@enact/sandstone/Panels";
 import Button from "@enact/sandstone/Button";
+import Skinnable from "@enact/sandstone/Skinnable";
+
+import BabyMode from "./BabyMode";
+import SleepCycle from "./SleepCycle";
+import Setting from "./Setting";
+import CCTV from "./CCTV";
+
+import "../css/custom_skin.css";
+import "../css/MainPanel.css";
+
+import logo from "../../resources/sbb-logo.png";
 
 const Main = () => {
   return (
-    <div>
-      <Header title="Stand BY ME" />
-      <Link to="/babymode">
-        <Button>Baby Mode</Button>
-      </Link>
-      <Link to="/sleepcycle">
-        <Button>Sleep Cycle</Button>
-      </Link>
-      <Link to="/setting">
-        <Button>Setting</Button>
-      </Link>
-      <Link to="/cctv">
-        <Button>CCTV</Button>
-      </Link>
+    <div className="sandstone-theme mainPanel">
+      <div className="header-wrapper">
+        <img src={logo}></img>
+        <Header className="header-prop" title="Stand By Baby"></Header>
+      </div>
+      <TabLayout>
+        <Tab title="Baby Mode">
+          <BabyMode></BabyMode>
+          <Button>ddd</Button>
+        </Tab>
+        <Tab title="Sleep Cycle">
+          <SleepCycle></SleepCycle>
+        </Tab>
+        <Tab title="Setting">
+          <Setting></Setting>
+        </Tab>
+        <Tab title="CCTV">
+          <CCTV></CCTV>
+        </Tab>
+      </TabLayout>
     </div>
   );
 };

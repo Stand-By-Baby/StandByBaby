@@ -13,7 +13,6 @@ import Dropdown from "@enact/sandstone/Dropdown";
 const Setting = () => {
   return (
     <div>
-      <Header title="Setting"></Header>
       <TabLayout orientation="horizontal">
         <Tab title="All Sleep">
           <Icon size={"large"}>plus</Icon>
@@ -63,7 +62,17 @@ const Setting = () => {
             <Button>저장</Button>
           </div>
         </Tab>
-        <Tab title="CCTV"></Tab>
+        <Tab title="CCTV">
+          <div>
+            <Dropdown inline title="저장 기간">
+              {["3days(720p)", "1week(480p)", "3weeks(360p)"]}
+            </Dropdown>
+            <div>
+              <Heading spacing="large">"Live CCTV"</Heading>
+              <Button>Video</Button>
+            </div>
+          </div>
+        </Tab>
       </TabLayout>
     </div>
   );

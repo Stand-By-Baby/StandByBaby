@@ -1,0 +1,16 @@
+.mainPanel {
+  height: 100%;
+}
+.mainPanel .header-wrapper {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainPanel .header-wrapper img {
+  height: 300px;
+  width: 300px;
+}
+.mainPanel .header-wrapper .header-prop {
+  width: 100%;
+}

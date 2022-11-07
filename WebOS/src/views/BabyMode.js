@@ -1,7 +1,7 @@
 import React from "react";
 
 const BabyMode = () => {
-  return <div></div>;
+  return <div className=".sandstone-theme"></div>;
 };
 
 export default BabyMode;

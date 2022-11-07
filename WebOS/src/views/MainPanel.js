@@ -3,6 +3,8 @@ import { Panel, Header } from "@enact/sandstone/Panels";
 
 import Main from "./Main";
 
+import "../css/MainPanel.css";
+
 const MainPanel = kind({
   name: "MainPanel",
 
