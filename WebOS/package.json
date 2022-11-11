@@ -39,6 +39,8 @@
 		"@enact/spotlight": "^4.5.0",
 		"@enact/ui": "^4.5.0",
 		"@enact/webos": "^4.5.0",
+		"@nivo/core": "^0.80.0",
+		"@nivo/radar": "^0.80.0",
 		"ilib": "npm:ilib-webos@^14.14.0-webos1",
 		"node-sass": "^7.0.3",
 		"prop-types": "^15.8.1",

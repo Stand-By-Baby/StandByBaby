@@ -6,7 +6,6 @@ import TabLayout from "@enact/sandstone/TabLayout";
 import { Tab } from "@enact/sandstone/TabLayout";
 import { Header } from "@enact/sandstone/Panels";
 import Button from "@enact/sandstone/Button";
-import Skinnable from "@enact/sandstone/Skinnable";
 
 import BabyMode from "./BabyMode";
 import SleepCycle from "./SleepCycle";
@@ -23,8 +22,10 @@ const Main = () => {
     <div className="sandstone-theme mainPanel">
       <div className="header-wrapper">
         <img src={logo}></img>
-        <Header className="header-prop" title="Stand By Baby"></Header>
+        <h1 className="header-title">Stand By Baby</h1>
+        <Header className="header-prop"></Header>
       </div>
+
       <TabLayout>
         <Tab title="Baby Mode">
           <BabyMode></BabyMode>

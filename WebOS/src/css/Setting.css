@@ -1,0 +1,33 @@
+.setting .all-sleep-header {
+  height: 100%;
+  padding: 3rem;
+}
+.setting .all-sleep-header .all-sleep-title {
+  display: flex;
+  align-items: center;
+}
+.setting .all-sleep-header .all-sleep-title img {
+  height: 150px;
+  width: 150px;
+}
+.setting .all-sleep-header .all-sleep-title .all-sleep-title-text {
+  padding-left: 1rem;
+  padding-right: 5rem;
+  font-size: larger;
+}
+.setting .switch {
+  width: 100%;
+  height: 100%;
+}
+.setting .switch .switch-line {
+  display: flex;
+  justify-content: space-evenly;
+}
+.setting .switch .switch-line .switch-block {
+  display: inline-block;
+  width: 15rem;
+}
+.setting .switch .switch-line .switch-block .switch-text {
+  display: inline-block;
+  width: 8rem;
+}

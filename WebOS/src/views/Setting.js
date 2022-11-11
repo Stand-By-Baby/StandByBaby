@@ -9,19 +9,66 @@ import Button from "@enact/sandstone/Button";
 import CheckBoxItem from "@enact/sandstone/CheckboxItem";
 import Heading from "@enact/sandstone/Heading";
 import Dropdown from "@enact/sandstone/Dropdown";
+import Switch from "@enact/sandstone/Switch";
+import BodyText from "@enact/sandstone/BodyText";
+
+import "../css/Setting.css";
+
+import logo from "../../resources/lg-thinq-logo.png";
 
 const Setting = () => {
   return (
-    <div>
+    <div className="setting">
       <TabLayout orientation="horizontal">
-        <Tab title="All Sleep">
-          <Icon size={"large"}>plus</Icon>
-          <Button>찾기 </Button>
-          <div>
-            <CheckBoxItem>세탁기</CheckBoxItem>
-            <CheckBoxItem>스타일러</CheckBoxItem>
-            <CheckBoxItem>건조기</CheckBoxItem>
-            <CheckBoxItem>에어컨</CheckBoxItem>
+        <Tab title="All-sleep">
+          <div className="all-sleep-header">
+            <div className="all-sleep-title">
+              <img src={logo}></img>
+              <span className="all-sleep-title-text">LG ThinQ</span>
+              <Button>찾기 </Button>
+            </div>
+          </div>
+          <div className="switch">
+            <div className="switch-line">
+              <div className="switch-block">
+                <BodyText className="switch-text">세탁기</BodyText>
+                <Switch className="switch-control"></Switch>
+              </div>
+              <div className="switch-block">
+                <BodyText className="switch-text">스타일러</BodyText>
+                <Switch className="switch-control"></Switch>
+              </div>
+            </div>
+            <div className="switch-line">
+              <div className="switch-block">
+                <BodyText className="switch-text">건조기</BodyText>
+                <Switch className="switch-control"></Switch>
+              </div>
+              <div className="switch-block">
+                <BodyText className="switch-text">에어컨</BodyText>
+                <Switch className="switch-control"></Switch>
+              </div>
+            </div>
+            <div className="switch-line">
+              <div className="switch-block">
+                <BodyText className="switch-text">식기체척기</BodyText>
+                <Switch className="switch-control"></Switch>
+              </div>
+              <div className="switch-block">
+                <BodyText className="switch-text">TV</BodyText>
+                <Switch className="switch-control"></Switch>
+              </div>
+            </div>
+            <div className="switch-line">
+              <div className="switch-block">
+                <BodyText className="switch-text">로봇청소기</BodyText>
+                <Switch className="switch-control"></Switch>
+              </div>
+              <div className="switch-block">
+                <BodyText className="switch-text">PC</BodyText>
+                <Switch className="switch-control"></Switch>
+              </div>
+            </div>
           </div>
         </Tab>
         <Tab title="Video"></Tab>
