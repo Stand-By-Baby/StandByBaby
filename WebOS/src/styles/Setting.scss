@@ -36,4 +36,32 @@
       }
     }
   }
+
+  .alarm {
+    .alarm-header {
+      padding: 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .alarm-btn {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .cctv {
+    .cctv-header {
+      padding: 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .cctv-live {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }

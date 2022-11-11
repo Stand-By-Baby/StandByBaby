@@ -31,3 +31,23 @@
   display: inline-block;
   width: 8rem;
 }
+.setting .alarm .alarm-header {
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+}
+.setting .alarm .alarm-btn {
+  display: flex;
+  justify-content: center;
+}
+.setting .cctv .cctv-header {
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+}
+.setting .cctv .cctv-live {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

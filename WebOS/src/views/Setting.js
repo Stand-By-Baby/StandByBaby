@@ -73,48 +73,53 @@ const Setting = () => {
         </Tab>
         <Tab title="Video"></Tab>
         <Tab title="Alarm">
-          <Heading spacing="large">Alarm</Heading>
-          <Dropdown inline title="수면 시간">
-            {[
-              "30M",
-              "1H",
-              "1H 30M",
-              "2H",
-              "2H 30M",
-              "3H",
-              "3H 30M",
-              "4H",
-              "4H 30M",
-              "5H",
-              "5H 30M",
-              "6H",
-              "6H 30M",
-              "7H",
-              "7H 30M",
-              "8H",
-              "8H 30M",
-              "9H",
-              "9H 30M",
-              "10H",
-              "10H 30M",
-              "11H",
-              "11H 30M",
-              "12H",
-            ]}
-          </Dropdown>
-          <Dropdown inline title="알람 횟수">
-            {["1회", "2회", "4회"]}
-          </Dropdown>
-          <div>
-            <Button>저장</Button>
+          <div className="alarm">
+            <div className="alarm-header">
+              <Dropdown inline title="수면 시간">
+                {[
+                  "30M",
+                  "1H",
+                  "1H 30M",
+                  "2H",
+                  "2H 30M",
+                  "3H",
+                  "3H 30M",
+                  "4H",
+                  "4H 30M",
+                  "5H",
+                  "5H 30M",
+                  "6H",
+                  "6H 30M",
+                  "7H",
+                  "7H 30M",
+                  "8H",
+                  "8H 30M",
+                  "9H",
+                  "9H 30M",
+                  "10H",
+                  "10H 30M",
+                  "11H",
+                  "11H 30M",
+                  "12H",
+                ]}
+              </Dropdown>
+              <Dropdown inline title="알람 횟수">
+                {["1회", "2회", "4회"]}
+              </Dropdown>
+            </div>
+            <div className="alarm-btn">
+              <Button>저장</Button>
+            </div>
           </div>
         </Tab>
         <Tab title="CCTV">
-          <div>
-            <Dropdown inline title="저장 기간">
-              {["3days(720p)", "1week(480p)", "3weeks(360p)"]}
-            </Dropdown>
-            <div>
+          <div className="cctv">
+            <div className="cctv-header">
+              <Dropdown inline title="저장 기간">
+                {["3days(720p)", "1week(480p)", "3weeks(360p)"]}
+              </Dropdown>
+            </div>
+            <div className="cctv-live">
               <Heading spacing="large">"Live CCTV"</Heading>
               <Button>Video</Button>
             </div>

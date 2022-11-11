@@ -1,11 +1,12 @@
 import { ResponsiveRadar } from "@nivo/radar";
 import React from "react";
 
-const RadarChart = ({ data }) => {
+const RadarChart = (props) => {
   return (
     <div style={{ width: "auto", height: "400px", margin: "0 auto" }}>
       <ResponsiveRadar
-        data={data}
+        data={props.data}
+        theme={props.theme}
         keys={["avg_baby", "my_baby"]}
         indexBy="sleep"
         valueFormat=">-.2f"
