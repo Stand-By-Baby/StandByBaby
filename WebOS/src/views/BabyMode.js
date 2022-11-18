@@ -16,9 +16,7 @@ const BabyMode = () => {
           <div className="baby-mode-img">
             <img src={babymode} />
           </div>
-          <div className="baby-mode-toggle">
-            <Switch></Switch>
-          </div>
+          <div className="baby-mode-toggle">{/* <Switch></Switch> */}</div>
         </div>
       </Tab>
     </TabLayout>
