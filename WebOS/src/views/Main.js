@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -18,6 +18,22 @@ import "../css/MainPanel.css";
 import logo from "../../resources/sbb-logo.png";
 
 const Main = () => {
+  const [setting, setSetting] = useState({
+    music: "",
+    sleepTime: "",
+    alarmTimes: "",
+    saveRange: "",
+  });
+
+  function getSetting(params) {
+    setSetting({
+      music: params.music,
+      sleepTime: params.sleepTime,
+      alarmTimes: params.alarmTimes,
+      saveRange: params.saveRange,
+    });
+  }
+
   return (
     <div className="sandstone-theme mainPanel">
       <div className="header-wrapper">
@@ -28,14 +44,14 @@ const Main = () => {
 
       <TabLayout>
         <Tab title="Baby Mode">
-          <BabyMode></BabyMode>
+          <BabyMode setting={setting}></BabyMode>
           <Button>ddd</Button>
         </Tab>
         <Tab title="Sleep Cycle">
           <SleepCycle></SleepCycle>
         </Tab>
         <Tab title="Setting">
-          <Setting></Setting>
+          <Setting setFunc={(setting) => getSetting(setting)}></Setting>
         </Tab>
         <Tab title="CCTV">
           <CCTV></CCTV>

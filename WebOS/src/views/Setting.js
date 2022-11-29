@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import TabLayout from "@enact/sandstone/TabLayout";
 import { Tab } from "@enact/sandstone/TabLayout";
@@ -15,8 +15,81 @@ import BodyText from "@enact/sandstone/BodyText";
 import "../css/Setting.css";
 
 import logo from "../../resources/lg-thinq-logo.png";
+import ThinQData from "../Data/ThinQData";
+import CircularProgress from "@mui/material/CircularProgress";
 
-const Setting = () => {
+const Setting = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const [music, setMusic] = useState({
+    data: "",
+    selected: "",
+  });
+  const [sleepTime, setSleepTime] = useState({
+    data: "",
+    selected: "",
+  });
+  const [alarmTimes, setAlarmTimes] = useState({
+    data: "",
+    selected: "",
+  });
+  const [saveRange, setSaveRange] = useState({
+    data: "",
+    selected: "",
+  });
+
+  const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  const handleClick = async (event) => {
+    console.log("start");
+
+    setIsLoading(true);
+    setMessage("정보를 읽어오고 있습니다.");
+    await sleep(3000);
+    setIsLoading(false);
+    setMessage("가전이 연결되었습니다.");
+
+    console.log("end");
+  };
+
+  const handleSleepTime = (data) => {
+    setSleepTime({
+      data: data.data,
+      selected: data.selected,
+    });
+  };
+
+  const handleAlarmTimes = (data) => {
+    setAlarmTimes({
+      data: data.data,
+      selected: data.selected,
+    });
+  };
+
+  const handleSaveRange = (data) => {
+    setSaveRange({
+      data: data.data,
+      selected: data.selected,
+    });
+  };
+
+  const handleMusic = (data) => {
+    setMusic({
+      data: data.data,
+      selected: data.selected,
+    });
+  };
+
+  const handleSaveClick = () => {
+    props.setFunc({
+      music: music.data,
+      sleepTime: sleepTime.data,
+      alarmTimes: alarmTimes.data,
+      saveRange: saveRange.data,
+    });
+  };
+
   return (
     <div className="setting">
       <TabLayout orientation="horizontal">
@@ -25,57 +98,74 @@ const Setting = () => {
             <div className="all-sleep-title">
               <img src={logo}></img>
               <span className="all-sleep-title-text">LG ThinQ</span>
-              <Button>찾기 </Button>
+              <Button onClick={handleClick}>찾기 </Button>
+              <span>{message}</span>
+              {isLoading ? <CircularProgress sx={{ width: 1000 }} /> : ""}
             </div>
           </div>
           <div className="switch">
-            <div className="switch-line">
-              <div className="switch-block">
-                <BodyText className="switch-text">세탁기</BodyText>
-                <Switch className="switch-control"></Switch>
-              </div>
-              <div className="switch-block">
-                <BodyText className="switch-text">스타일러</BodyText>
-                <Switch className="switch-control"></Switch>
-              </div>
-            </div>
-            <div className="switch-line">
-              <div className="switch-block">
-                <BodyText className="switch-text">건조기</BodyText>
-                <Switch className="switch-control"></Switch>
-              </div>
-              <div className="switch-block">
-                <BodyText className="switch-text">에어컨</BodyText>
-                <Switch className="switch-control"></Switch>
-              </div>
-            </div>
-            <div className="switch-line">
-              <div className="switch-block">
-                <BodyText className="switch-text">식기체척기</BodyText>
-                <Switch className="switch-control"></Switch>
-              </div>
-              <div className="switch-block">
-                <BodyText className="switch-text">TV</BodyText>
-                <Switch className="switch-control"></Switch>
-              </div>
-            </div>
-            <div className="switch-line">
-              <div className="switch-block">
-                <BodyText className="switch-text">로봇청소기</BodyText>
-                <Switch className="switch-control"></Switch>
-              </div>
-              <div className="switch-block">
-                <BodyText className="switch-text">PC</BodyText>
-                <Switch className="switch-control"></Switch>
-              </div>
-            </div>
+            {ThinQData.map((a) => {
+              return (
+                <div className="switch-line">
+                  <div className="switch-block">
+                    <BodyText className="switch-text">{a.fir}</BodyText>
+                    <Switch key={a.fir} className="switch-control"></Switch>
+                  </div>
+                  <div className="switch-block">
+                    <BodyText className="switch-text">{a.sec}</BodyText>
+                    <Switch key={a.sec} className="switch-control"></Switch>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </Tab>
-        <Tab title="Video"></Tab>
+
+        <Tab title="Video">
+          <TabLayout orientation="horizontal">
+            <Tab title="동요">
+              <div className="alarm">
+                <div className="alarm-header">
+                  <Dropdown
+                    selected={Number(music.selected)}
+                    onSelect={(data) => handleMusic(data)}
+                    title="동요"
+                  >
+                    {["곰 세 마리", "산토끼", "나비야 나비야"]}
+                  </Dropdown>
+                </div>
+                <div className="alarm-btn">
+                  <Button onClick={handleSaveClick}>저장</Button>
+                </div>
+              </div>
+            </Tab>
+            <Tab title="클래식">
+              <div className="alarm">
+                <div className="alarm-header">
+                  <Dropdown
+                    selected={Number(music.selected)}
+                    onSelect={(data) => handleMusic(data)}
+                    title="클래식"
+                  >
+                    {["Prelude", "PianoSonata", "WaltzOfTheFlowers"]}
+                  </Dropdown>
+                </div>
+                <div className="alarm-btn">
+                  <Button onClick={handleSaveClick}>저장</Button>
+                </div>
+              </div>
+            </Tab>
+          </TabLayout>
+        </Tab>
+
         <Tab title="Alarm">
           <div className="alarm">
             <div className="alarm-header">
-              <Dropdown inline title="수면 시간">
+              <Dropdown
+                selected={Number(sleepTime.selected)}
+                onSelect={(data) => handleSleepTime(data)}
+                title="수면 시간"
+              >
                 {[
                   "30M",
                   "1H",
@@ -103,25 +193,34 @@ const Setting = () => {
                   "12H",
                 ]}
               </Dropdown>
-              <Dropdown inline title="알람 횟수">
+              <Dropdown
+                selected={Number(alarmTimes.selected)}
+                onSelect={(data) => handleAlarmTimes(data)}
+                title="알람 횟수"
+              >
                 {["1회", "2회", "4회"]}
               </Dropdown>
             </div>
             <div className="alarm-btn">
-              <Button>저장</Button>
+              <Button onClick={handleSaveClick}>저장</Button>
             </div>
           </div>
         </Tab>
+
         <Tab title="CCTV">
           <div className="cctv">
             <div className="cctv-header">
-              <Dropdown inline title="저장 기간">
+              <Dropdown
+                selected={Number(saveRange.selected)}
+                onSelect={(data) => handleSaveRange(data)}
+                title="저장 기간"
+              >
                 {["3days(720p)", "1week(480p)", "3weeks(360p)"]}
               </Dropdown>
             </div>
             <div className="cctv-live">
               <Heading spacing="large">"Live CCTV"</Heading>
-              <Button>Video</Button>
+              <Button onClick={handleSaveClick}>Video</Button>
             </div>
           </div>
         </Tab>

@@ -1,0 +1,9 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.wrapper .radarchart {
+  height: 40%;
+  width: 40%;
+}

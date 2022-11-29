@@ -1,4 +1,5 @@
 import React from "react";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 import TabLayout from "@enact/sandstone/TabLayout";
 import { Tab } from "@enact/sandstone/TabLayout";
@@ -8,14 +9,20 @@ import babymode from "../../resources/baby-mode.png";
 
 import "../css/BabyMode.css";
 
-const BabyMode = () => {
+const BabyMode = (props) => {
   return (
     <TabLayout orientation="horizontal">
       <Tab title="BabyMode">
         <div className="baby-mode">
-          <div className="baby-mode-img">
-            <img src={babymode} />
-          </div>
+          {console.log(props.setting)}
+          <CountdownCircleTimer
+            isPlaying
+            duration={7}
+            colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+            colorsTime={[7, 5, 2, 0]}
+          >
+            {({ remainingTime }) => remainingTime}
+          </CountdownCircleTimer>
           <div className="baby-mode-toggle">{/* <Switch></Switch> */}</div>
         </div>
       </Tab>
