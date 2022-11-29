@@ -8,6 +8,7 @@ import Switch from "@enact/sandstone/Switch";
 import babymode from "../../resources/baby-mode.png";
 
 import "../css/BabyMode.css";
+import CountDown from "../components/CountDown";
 
 const BabyMode = (props) => {
   return (
@@ -23,6 +24,7 @@ const BabyMode = (props) => {
           >
             {({ remainingTime }) => remainingTime}
           </CountdownCircleTimer>
+          <CountDown />
           <div className="baby-mode-toggle">{/* <Switch></Switch> */}</div>
         </div>
       </Tab>
