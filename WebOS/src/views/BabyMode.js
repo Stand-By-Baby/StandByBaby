@@ -18,7 +18,7 @@ import { fireStore } from "../Firebase";
 
 const BabyMode = (props) => {
   const [countDown, setCountDown] = useState(true);
-
+  const eke = 0;
   const [move, setMove] = useState(false);
   const [temp, setTemp] = useState(false);
   const [cry, setCry] = useState(false);
