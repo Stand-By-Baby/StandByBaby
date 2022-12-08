@@ -27,11 +27,11 @@ const App = kind({
     <Panels {...props}>
       <BrowserRouter>
         <Routes>
-          {/* <Route path="/" element={<MainPanel />} />
+          <Route path="/" element={<MainPanel />} />
           <Route path="/babymode" element={<BabyMode />} />
           <Route path="/sleepcycle" element={<SleepCycle />} />
           <Route path="/setting" element={<Setting />} />
-          <Route path="/cctv" element={<CCTV />} /> */}
+          <Route path="/cctv" element={<CCTV />} />
         </Routes>
       </BrowserRouter>
     </Panels>

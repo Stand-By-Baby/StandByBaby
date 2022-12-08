@@ -1,19 +1,32 @@
 .baby-mode {
-  .baby-mode-img {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    img {
-      height: 14rem;
-      width: 14rem;
-      filter: invert(97%) sepia(9%) saturate(971%) hue-rotate(2deg)
-        brightness(91%) contrast(85%);
-    }
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .baby-mode-count {
+    height: 60%;
   }
 
-  .baby-mode-toggle {
+  .baby-mode-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
+
+    .baby-mode-side {
+      display: flex;
+      flex-direction: column;
+      .btn {
+        color: #1b2430;
+        height: 100px;
+        width: 300px;
+        margin-bottom: 100px;
+        background-color: transparent;
+        border: none;
+      }
+    }
+
+    .baby-mode-live {
+      height: 100%;
+    }
   }
 }

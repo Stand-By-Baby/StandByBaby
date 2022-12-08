@@ -38,6 +38,7 @@ const Setting = (props) => {
     data: "",
     selected: "",
   });
+  const [sel1, setSel1] = useState(false);
 
   const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -48,6 +49,8 @@ const Setting = (props) => {
     setMessage("정보를 읽어오고 있습니다.");
     await sleep(3000);
     setIsLoading(false);
+    setSel1(true);
+
     setMessage("가전이 연결되었습니다.");
 
     console.log("end");
@@ -104,20 +107,46 @@ const Setting = (props) => {
             </div>
           </div>
           <div className="switch">
-            {ThinQData.map((a) => {
-              return (
-                <div className="switch-line">
-                  <div className="switch-block">
-                    <BodyText className="switch-text">{a.fir}</BodyText>
-                    <Switch key={a.fir} className="switch-control"></Switch>
-                  </div>
-                  <div className="switch-block">
-                    <BodyText className="switch-text">{a.sec}</BodyText>
-                    <Switch key={a.sec} className="switch-control"></Switch>
-                  </div>
-                </div>
-              );
-            })}
+            <div className="switch-line">
+              <div className="switch-block">
+                <BodyText className="switch-text">{ThinQData[0].fir}</BodyText>
+                <Switch selected={sel1} className="switch-control"></Switch>
+              </div>
+              <div className="switch-block">
+                <BodyText className="switch-text">{ThinQData[0].sec}</BodyText>
+                <Switch selected={false} className="switch-control"></Switch>
+              </div>
+            </div>
+            <div className="switch-line">
+              <div className="switch-block">
+                <BodyText className="switch-text">{ThinQData[1].fir}</BodyText>
+                <Switch selected={false} className="switch-control"></Switch>
+              </div>
+              <div className="switch-block">
+                <BodyText className="switch-text">{ThinQData[1].sec}</BodyText>
+                <Switch selected={sel1} className="switch-control"></Switch>
+              </div>
+            </div>
+            <div className="switch-line">
+              <div className="switch-block">
+                <BodyText className="switch-text">{ThinQData[2].fir}</BodyText>
+                <Switch selected={false} className="switch-control"></Switch>
+              </div>
+              <div className="switch-block">
+                <BodyText className="switch-text">{ThinQData[2].sec}</BodyText>
+                <Switch selected={sel1} className="switch-control"></Switch>
+              </div>
+            </div>
+            <div className="switch-line">
+              <div className="switch-block">
+                <BodyText className="switch-text">{ThinQData[3].fir}</BodyText>
+                <Switch selected={false} className="switch-control"></Switch>
+              </div>
+              <div className="switch-block">
+                <BodyText className="switch-text">{ThinQData[3].sec}</BodyText>
+                <Switch selected={false} className="switch-control"></Switch>
+              </div>
+            </div>
           </div>
         </Tab>
 
@@ -219,8 +248,7 @@ const Setting = (props) => {
               </Dropdown>
             </div>
             <div className="cctv-live">
-              <Heading spacing="large">"Live CCTV"</Heading>
-              <Button onClick={handleSaveClick}>Video</Button>
+              <Button onClick={handleSaveClick}>저장</Button>
             </div>
           </div>
         </Tab>
